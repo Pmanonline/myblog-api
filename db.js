@@ -10,12 +10,3 @@ const db = mysql.createPool({
 });
 
 module.exports = db;
-
-// const db = mysql.createPool({
-//   user: "root",
-//   host: "localhost",
-//   password: "w3schools.com",
-//   database: "blogpost",
-// });
-
-// module.exports = db;

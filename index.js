@@ -17,18 +17,22 @@ app.use(
     credentials: true,
   })
 );
-app.use(function (req, res, next) {
+
+app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
     "https://schoolmgt-app.vercel.app"
-  ); // Replace with your client's domain
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
 });
+
 app.options("*", function (req, res) {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://schoolmgt-app.vercel.app"
+    "https://schoolmgt-app.vercel.app/"
   ); // Replace with your client's domain
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");

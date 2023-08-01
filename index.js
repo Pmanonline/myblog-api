@@ -13,14 +13,14 @@ const app = express();
 const cors = require("cors");
 app.use(
   cors({
-    origin: "https://schoolmgt-app.vercel.app/",
+    origin: "https://schoolmgt-app.vercel.app",
     credentials: true,
   })
 );
 app.use(function (req, res, next) {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://schoolmgt-app.vercel.app/"
+    "https://schoolmgt-app.vercel.app"
   ); // Replace with your client's domain
   res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
 app.options("*", function (req, res) {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://schoolmgt-app.vercel.app/"
+    "https://schoolmgt-app.vercel.app"
   ); // Replace with your client's domain
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");

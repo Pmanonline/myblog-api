@@ -13,17 +13,23 @@ const app = express();
 const cors = require("cors");
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://schoolmgt-app.vercel.app/",
     credentials: true,
   })
 );
 app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); // Replace with your client's domain
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://schoolmgt-app.vercel.app/"
+  ); // Replace with your client's domain
   res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
 });
 app.options("*", function (req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000"); // Replace with your client's domain
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://schoolmgt-app.vercel.app/"
+  ); // Replace with your client's domain
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");

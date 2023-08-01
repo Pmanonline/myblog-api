@@ -29,16 +29,16 @@ app.use((req, res, next) => {
   next();
 });
 
-app.options("*", function (req, res) {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://schoolmgt-app.vercel.app/"
-  ); // Replace with your client's domain
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.sendStatus(200);
-});
+// app.options("*", function (req, res) {
+//   res.setHeader(
+//     "Access-Control-Allow-Origin",
+//     "https://schoolmgt-app.vercel.app/"
+//   ); // Replace with your client's domain
+//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//   res.setHeader("Access-Control-Allow-Credentials", "true");
+//   res.sendStatus(200);
+// });
 
 // const PORT = process.env.port || 3001;
 const PORT = 3001;

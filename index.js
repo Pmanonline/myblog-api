@@ -57,7 +57,7 @@ app.use(logger);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../client/public/upload");
+    cb(null, "./client/public/upload");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + file.originalname);
@@ -65,14 +65,14 @@ const storage = multer.diskStorage({
 });
 
 // const upload = multer({ dest: './upload' });
-const upload = multer({ storage: storage });
-// const upload = multer({
-//   storage: storage,
-//   limits: { fileSize: 10000000 },
-//   fileFilter: (req, file, cb) => {
-//     checkFileType(file, cb);
-//   },
-// });
+// const upload = multer({ storage: storage });
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 10000000 },
+  fileFilter: (req, file, cb) => {
+    checkFileType(file, cb);
+  },
+});
 
 const checkFileType = function (file, cb) {
   //Allowed file extensions

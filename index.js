@@ -65,14 +65,14 @@ const storage = multer.diskStorage({
 });
 
 // const upload = multer({ dest: './upload' });
-// const upload = multer({ storage: storage });
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 10000000 },
-  fileFilter: (req, file, cb) => {
-    checkFileType(file, cb);
-  },
-});
+const upload = multer({ storage: storage });
+// const upload = multer({
+//   storage: storage,
+//   limits: { fileSize: 10000000 },
+//   fileFilter: (req, file, cb) => {
+//     checkFileType(file, cb);
+//   },
+// });
 
 const checkFileType = function (file, cb) {
   //Allowed file extensions
@@ -92,7 +92,7 @@ const checkFileType = function (file, cb) {
 
 app.post("/api/upload", upload.single("file"), function (req, res) {
   const file = req.file;
-  // res.status(200).json("Image has been uploaded");
+  res.status(200).json("Image has been uploaded");
   // res.status(200).json(file.filename);
   // console.log(file.filename);
 });

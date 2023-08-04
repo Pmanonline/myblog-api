@@ -9,14 +9,6 @@ const path = require("path");
 const errorHandler = require("./middleware/errorHandler.js");
 const session = require("express-session");
 
-app.use(
-  session({
-    secret: "jwtkey", // Replace with a strong secret key
-    resave: false,
-    saveUninitialized: true,
-  })
-);
-
 const app = express();
 const cors = require("cors");
 app.use(
@@ -48,6 +40,13 @@ app.options("*", function (req, res) {
   res.sendStatus(200);
 });
 
+app.use(
+  session({
+    secret: "jwtkey", // Replace with a strong secret key
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 // const PORT = process.env.port || 3001;
 const PORT = 3001;
 app.use(express.json());

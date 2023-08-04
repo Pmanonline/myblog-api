@@ -13,7 +13,7 @@ const app = express();
 const cors = require("cors");
 app.use(
   cors({
-    origin: "https://myblog-app-tan.vercel.app/",
+    origin: "https://myblog-app-tan.vercel.app",
     credentials: true,
   })
 );
@@ -21,7 +21,7 @@ app.use(
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://myblog-app-tan.vercel.app/"
+    "https://myblog-app-tan.vercel.app"
   );
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 app.options("*", function (req, res) {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://myblog-app-tan.vercel.app/"
+    "https://myblog-app-tan.vercel.app"
   ); // Replace with your client's domain
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");

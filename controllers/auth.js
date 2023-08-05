@@ -74,9 +74,12 @@ function login(req, res) {
 
     const { password, ...other } = data[0];
     const token = jwt.sign({ id: data[0].id }, "jwtkey");
+    const date = new Date();
+    const tokenExpire = date.setTime(date.getTime() + 360 * 1000);
 
     res
       .cookie("access_token", token, {
+        maxAge: tokenExpire,
         httpOnly: true,
         credentials: "include",
       })

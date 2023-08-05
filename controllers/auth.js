@@ -88,9 +88,11 @@ function login(req, res) {
     res
       .cookie("access_token", token, {
         domain: "https://myblog-app-tan.vercel.app/", // Replace with your actual domain.
+        maxAge: tokenExpire,
         path: "/",
         httpOnly: true,
         secure: true,
+        credentials: "include",
         sameSite: "None", // Set to 'None' for cross-site access over HTTPS.
       })
       .status(200)

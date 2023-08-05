@@ -77,11 +77,21 @@ function login(req, res) {
     const date = new Date();
     const tokenExpire = date.setTime(date.getTime() + 360 * 1000);
 
+    // res
+    //   .cookie("access_token", token, {
+    //     maxAge: tokenExpire,
+    //     httpOnly: true,
+    //     credentials: "include",
+    //   })
+    //   .status(200)
+    //   .json(other);
     res
       .cookie("access_token", token, {
-        maxAge: tokenExpire,
+        domain: "https://myblog-app-tan.vercel.app/", // Replace with your actual domain.
+        path: "/",
         httpOnly: true,
-        credentials: "include",
+        secure: true,
+        sameSite: "None", // Set to 'None' for cross-site access over HTTPS.
       })
       .status(200)
       .json(other);

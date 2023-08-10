@@ -3,6 +3,11 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 function register(req, res) {
+  //   Simple validation
+  if (!req.body.email || !req.body.username) {
+    return res.status(400).json({ msg: "Please enter your details" });
+  }
+
   //CHECK EXISTING USER
   const q = "SELECT * FROM users WHERE email = ? OR username = ?";
 
